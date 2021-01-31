@@ -1,12 +1,12 @@
 version: '3'
 services:
-  socio_db:
+  admindb:
     image: postgres:13.1-alpine
-    container_name: socio-db
+    container_name: admin-db
     environment:
-      POSTGRES_PASSWORD: 'SocTorc#@2021'
-      POSTGRES_USER: 'socito_torcedor'
-      POSTGRES_DB: 'dbsocio_torcida'
+      POSTGRES_PASSWORD: 'admindb'
+      POSTGRES_USER: 'adminServer'
+      POSTGRES_DB: 'dbadmin_server'
     volumes:
       - ./docker/db:/var/lib/postgres
     ports:
@@ -16,9 +16,9 @@ services:
 
   api:
     build:
-      context: ./codigo-fonte/backend/docker
+      context: ./code/service/docker
       dockerfile: Dockerfile
-    container_name: socio
+    container_name: admin-api
     restart: unless-stopped
     tty: true
     environment:
@@ -28,11 +28,11 @@ services:
     ports:
       - "9000:80"
     volumes:
-      - ./codigo-fonte/backend:/var/www
+      - ./code/service:/var/www
     networks:
       - gateway_net
     depends_on:
-      - pix_db
+      - admindb
 
 networks:
   gateway_net:
