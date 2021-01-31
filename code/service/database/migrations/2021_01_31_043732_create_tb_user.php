@@ -28,6 +28,7 @@ class CreateTbUser extends Migration
             $table->string('nm_municipality', 255)->nullable()->comment('User municipality');
             $table->string('nm_neighborhood', 255)->nullable()->comment('User neighborhood');
             $table->string('ds_add_address', 255)->nullable()->comment('User add user address');
+            $table->string('ar_photo_user', 255)->nullable()->comment('User photo location');
             $table->timestamp('ts_user_birth')->nullable()->comment('User birthday');
             $table->string('ps_password')->nullable()->comment('User password');
             $table->integer('nu_attempts')->nullable()->comment('User number of attempts');
