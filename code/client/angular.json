@@ -7,10 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.scss",
-          "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.scss",
-          "node_modules/animate.css/animate.min.scss"
+          "style": "scss"
         },
         "@schematics/angular:application": {
           "strict": true
@@ -130,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "socioTorcedor"
+  "defaultProject": "socioTorcedor",
+  "cli": {
+    "analytics": "f25db57b-7fbd-4c55-8893-ca1c932962b1"
+  }
 }
