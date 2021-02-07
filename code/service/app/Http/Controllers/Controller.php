@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Constants\Constants;
 use App\Constants\Messages;
 use App\Services\Service;
 use App\Traits\ResponseTrait;
@@ -20,17 +19,27 @@ class Controller extends BaseController
 
     public function index(Request $request)
     {
-        return $this->sendResponse($this->service->getPaginate($request->all()), __('responses.success.list'));
+
+        return $this->sendResponse(
+            $this->service->getPaginate($request->all()),
+            __('responses.success.list')
+        );
     }
 
     public function show($id)
     {
-        return $this->sendResponse($this->service->find($id), Messages::MSG029);
+        return $this->sendResponse(
+            $this->service->find($id),
+            Messages::MSG007
+        );
     }
 
     public function destroy($id)
     {
-        return $this->sendResponse($this->service->delete($id), Messages::MSG029);
+        return $this->sendResponse(
+            $this->service->delete($id),
+            Messages::MSG006
+        );
     }
 
 }

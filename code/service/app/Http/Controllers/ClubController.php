@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
-use App\Services\UserService;
+use App\Http\Requests\ClubRequest;
+use App\Services\ClubService;
 use Illuminate\Http\Response;
 
-class UserController extends Controller
+class ClubController extends Controller
 {
-    /** @var UserService $service */
+    /** @var ClubService $service */
     public $service;
 
     /**
-     * UserController constructor.
-     * @param UserService $service
+     * ClubController constructor.
+     * @param ClubService $service
      */
-    public function __construct(UserService $service)
+    public function __construct(ClubService $service)
     {
         $this->service = $service;
     }
 
-    public function store(UserRequest $request)
+    public function store(ClubRequest $request)
     {
         return $this->sendResponse(
             $this->service->save($request->all()),
@@ -29,7 +29,7 @@ class UserController extends Controller
         );
     }
 
-    public function update($id, UserRequest $request)
+    public function update($id, ClubRequest $request)
     {
         return $this->sendResponse(
             $this->service->save($request->all(), $id),

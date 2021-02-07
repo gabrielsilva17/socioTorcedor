@@ -16,6 +16,8 @@ class Messages
         'Registro alterado com sucesso';
     const MSG006 =
         'Registro removido com sucesso';
+    const MSG007 =
+        'Requisição processada com sucesso';
     const MSG099 =
         'Ocorreu um erro no servidor, favor entrar em contato com administrador';
 }

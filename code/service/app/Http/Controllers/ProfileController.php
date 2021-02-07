@@ -12,7 +12,7 @@ class ProfileController extends Controller
     public $service;
 
     /**
-     * PerfilController constructor.
+     * ProfileController constructor.
      * @param ProfileService $service
      */
     public function __construct(ProfileService $service)

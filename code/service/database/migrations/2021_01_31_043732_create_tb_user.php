@@ -19,7 +19,7 @@ class CreateTbUser extends Migration
             $table->string('nm_nickname', 255)->nullable()->comment('Nickname user');
             $table->string('nm_name_dad', 255)->nullable()->comment('User father name');
             $table->string('nm_name_mom', 255)->nullable()->comment('User mother name');
-            $table->integer('nu_cpf')->nullable()->comment('User cpf identity');
+            $table->string('nu_cpf',11)->nullable()->comment('User cpf identity');
             $table->string('nu_home_phone', 30)->nullable()->comment('Home phone number');
             $table->string('nu_business_phone', 30)->nullable()->comment('Business phone number');
             $table->string('nu_cell_phone', 30)->nullable()->comment('Cell phone phone number');

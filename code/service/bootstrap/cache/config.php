@@ -10,7 +10,7 @@
     'locale' => 'pt-BR',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:dAmMV2adWYAFK2DAL2cQ7SFxTYALQDPdAPPXiCbk2pU=',
+    'key' => 'base64:ZKzSpWdY3ZcD/IrDSMbwz4YC0hi9Cjro3HAykg/HIjY=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -629,6 +629,30 @@
   array (
     'proxies' => NULL,
     'headers' => 94,
+  ),
+  'laravel-swagger' => 
+  array (
+    'title' => 'basedevelop',
+    'description' => '',
+    'appVersion' => '1.0.0',
+    'host' => '',
+    'basePath' => '/',
+    'schemes' => 
+    array (
+    ),
+    'consumes' => 
+    array (
+    ),
+    'produces' => 
+    array (
+    ),
+    'ignoredMethods' => 
+    array (
+      0 => 'head',
+    ),
+    'parseDocBlock' => true,
+    'parseSecurity' => true,
+    'authFlow' => 'accessCode',
   ),
   'tinker' => 
   array (
