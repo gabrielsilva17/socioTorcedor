@@ -14,7 +14,6 @@ class ProfileSeeder extends Seeder
     {
         Profile::unguard();
         $this->createProfile();
-
     }
 
     private function createProfile()

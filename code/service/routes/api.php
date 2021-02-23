@@ -21,3 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 route::resource('profile', 'ProfileController');
 route::resource('user', 'UserController');
 route::resource('club', 'ClubController');
+route::resource('flat', 'FlatController');
+route::resource('frequency', 'FrequencyController');
+route::resource('payment', 'PaymentController');
+route::resource('available', 'AvailableController');
