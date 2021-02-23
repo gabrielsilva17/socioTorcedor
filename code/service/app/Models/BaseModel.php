@@ -53,7 +53,7 @@ abstract class BaseModel extends Model
     public function populate($data)
     {
         foreach ($data as $key => $value) {
-            $this->{$key} = (empty($value)) ? $value : mb_strtoupper($value, 'UTF-8');
+            $this->{$key} = $value;
         }
         return $this;
     }
@@ -70,12 +70,13 @@ abstract class BaseModel extends Model
     public function scopeAutoQuery($query, $param)
     {
         collect($param)->each(function ($value, $key) use ($query) {
-            if (!empty(trim($value)) || $value === "0") {
+            $value = trim($value);
+            if (!empty($value) || $value === "0") {
                 if (strpos($key, 'ds_') === 0 || strpos($key, 'no_') === 0) {
                     $query->where(
-                        DB::raw("UPPER($key)"),
+                        $key,
                         'like',
-                        DB::raw("UPPER('%{$value}%')")
+                        DB::raw('%{$value}%')
                     );
                 } else {
                     $query->where($key, '=', $value);
@@ -105,7 +106,7 @@ abstract class BaseModel extends Model
 
     public function scopeLatest($query)
     {
-        return $query->orderBy('ts_create', 'desc');
+        return $query->orderBy(self::CREATED_AT, 'desc');
     }
 
     public function scopeGet($query, $param)

@@ -71,11 +71,19 @@ abstract class Service
     public function getPaginate($data)
     {
         $collect = collect($data);
+
+        $filter = [];
+
+        foreach($collect as $key => $value){
+            if($key !== 'page' && $key !== 'sort')
+                $filter[$key] = $value;
+        }
+
         $queryBuilder = $this->queryBuilder
-            ->autoQuery(json_decode($collect->pull('filter')))
+            ->autoQuery($filter)
             ->order(json_decode($collect->pull('order')));
         if ($collect->pull('page')) {
-            $paginate = $queryBuilder->paginate();
+            $paginate = $queryBuilder->paginate(10);
             $itemsTransformed = self::treateDataAddPk($paginate->getCollection());
             $itemsTransformed = $this->treatePaginateData($itemsTransformed);
             return new \Illuminate\Pagination\LengthAwarePaginator(
